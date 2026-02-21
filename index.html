@@ -34,7 +34,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3-colors-flat.css">
  <head>
 <script>
-    var allergy_count = 0;    // counts how many questions are answered as allergies/cold
+    var allergy_count = 0;    // counts how many questions are answered as allergies/cold.
     var cold_count = 0;
 
     function allergyAdd(){
@@ -44,7 +44,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     function coldAdd(){
         cold_count++;
     }
-
+// actually adds them up
     function showResult(){
 
         var total = allergy_count + cold_count;
@@ -56,13 +56,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
             allergyPercent = Math.round((allergy_count / total) * 100);
             coldPercent = Math.round((cold_count / total) * 100);
         }
-
+// calculates the precentage of which result cold or allergy.
         var resultText = document.getElementById("results");
 
         resultText.innerHTML =
             "Allergies: " + allergyPercent + "%<br>" +
             "Cold: " + coldPercent + "%";
-    }
+    } // Displays the precentage as a number so that the results button has a function to call to.
 </script>
 </head>
 
@@ -89,7 +89,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 }
 </style>
 
-<body>
+<body> // Above Edits the display look of the website
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>Cold or Allergies?</h1>
 </div>
@@ -104,19 +104,19 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 </div> <!-- adding this because it seems to be missing????? -->
 	
-<div class="page" id="one">
+<div class="page" id="one">    // Determines the id of the page, so we can call to it
 	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Question 1</h1>
+		<h1>Question 1</h1>  // Labeling that will display in the heading
 	</div>
 	
-    	<div id="content" class="w3-container">
-        <p>Are your eyes watery or itchy?</p>    
+    	<div id="content" class="w3-container">  // Seperates this code from the heading
+        <p>Are your eyes watery or itchy?</p>    // Displays the question
     	<a href="#two" onclick="allergyAdd()" class="w3-btn w3-black">Yes</a>
-<a href="#two" onclick="coldAdd()" class="w3-btn w3-black">No</a>
+<a href="#two" onclick="coldAdd()" class="w3-btn w3-black">No</a>   // onclick adds to the tally of which answers are Cold/Allergy symptoms
 		</div>
 </div>
 
-<div class="page" id="two">
+<div class="page" id="two">   // Comments are the same for each question
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
@@ -155,7 +155,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
 	</div>
-    <button onclick="showResult()">See Results</button>
+    <button onclick="showResult()">See Results</button>  // Button for results
 
     <p id="results"></p>
 
