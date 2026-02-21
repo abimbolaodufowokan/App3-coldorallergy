@@ -98,9 +98,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
     	<div id="content" class="w3-container">
         <p>Are your eyes watery or itchy?</p>    
-    	 <label><input type="radio" name="q1" value="allergy"> Yes</label>
-      <label><input type="radio" name="q1" value="cold"> No</label>
-		<a href="#two" class="w3-btn w3-black"> Go to Page Two </a>
+    	 <label class="option"><input type="radio" name="q1" value="allergy" onclick="autoNext()"> Yes</label>
+      <label class="option"><input type="radio" name="q1" value="cold" onclick="autoNext()"> No</label>
 		</div>
 </div>
 
