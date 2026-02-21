@@ -20,7 +20,7 @@ Brief Description of Goal of Code:
 To create a website that determines if someone has a cold or an allergy.
  
 Known Issues:
-blah, blah, blah, blah
+the script/function to calculate if you have an allergy or cold is wrong
 
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
@@ -32,26 +32,39 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
       <link rel="stylesheet" href="w3-colors-flat.css">
-   </head> 
-
-
+ <head>
 <script>
-        var allergy_count = 0;
-        var cold_count = 0;
+    var allergy_count = 0;
+    var cold_count = 0;
 
+    function allergyAdd(){
+        allergy_count++;
+    }
 
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
-		alert(allergy_count);
+    function coldAdd(){
+        cold_count++;
+    }
 
+    function showResult(){
+
+        var total = allergy_count + cold_count;
+
+        var allergyPercent = 0;
+        var coldPercent = 0;
+
+        if(total > 0){
+            allergyPercent = Math.round((allergy_count / total) * 100);
+            coldPercent = Math.round((cold_count / total) * 100);
         }
 
-        function coldAdd(){
-            cold_count = cold_count + 1;
-        }
+        var resultText = document.getElementById("results");
 
-  </script>
-
+        resultText.innerHTML =
+            "Allergies: " + allergyPercent + "%<br>" +
+            "Cold: " + coldPercent + "%";
+    }
+</script>
+</head>
 
 
 <style>	
@@ -143,12 +156,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         <p id="results"></p>
 <button onclick="calculateResult()">See My Results</button>
 
-<p id="result"></p>
-		 <script>
-        function calculateResult() {
-            document.getElementById("result").innerHTML =
-                "You are more likely to have a cold.";
-        }
+  <br><br>
+
+    <button onclick="showResult()">See Results</button>
+
+    <p id="results"></p>
+
     </script>
 
 </body>
